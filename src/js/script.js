@@ -40,12 +40,14 @@ const select = {
     },
   };
 
+  // eslint-disable-next-line no-unused-vars
   const settings = {
     amountWidget: {
       defaultValue: 1,
       defaultMin: 0,
       defaultMax: 10,
-    }
+    },
+    
   };
 
   const templates = {
@@ -87,7 +89,10 @@ const select = {
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      console.log('ImageWrapper', thisProduct.imageWrapper);
     }
+     
 
     initAccordion(){
       const thisProduct = this;
@@ -135,7 +140,6 @@ const select = {
 
       // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
        const formData = utils.serializeFormToObject(thisProduct.form);
-       console.log('formData:', formData);
 
       // set price to default price
       let price = thisProduct.data.price;
@@ -162,6 +166,22 @@ const select = {
               price -= option.price; // reduce price variable
             }
           }
+          const optionImage = thisProduct.imageWrapper.querySelector(`.${paramId}-${optionId}`);
+          console.log('OPTION IMAGE', optionImage);
+          console.log('PARAM ID', paramId);
+          console.log('OPTION ID', optionId);
+          const imageInput = classNames.menuProduct.imageVisible;
+          if(optionImage) {
+            if(selectedOption) {
+            optionImage.classList.add(imageInput);
+            console.log('!!!!', optionImage, selectedOption, imageInput);
+            }
+           else {
+            if(!selectedOption) {
+              optionImage.classList.remove(imageInput);
+            }
+           }
+          }    
         }
       }
       
