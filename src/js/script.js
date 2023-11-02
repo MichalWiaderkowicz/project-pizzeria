@@ -400,6 +400,8 @@
       thisCartProduct.amount = menuProduct.amount;
       thisCartProduct.price = menuProduct.price;
       thisCartProduct.priceSingle = menuProduct.priceSingle;
+      thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params)); 
+      thisCartProduct.element = element;
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
@@ -424,11 +426,12 @@
 
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
 
-      thisCartProduct.dom.amountWidget.addEventListener("updated", function () {
+      thisCartProduct.dom.amountWidget.addEventListener('updated', function () {
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amountWidget.value;
-        thisCartProduct.dom.price.innerHTML = thisCartProduct.price
+        thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
       });
+
     }
 
 
