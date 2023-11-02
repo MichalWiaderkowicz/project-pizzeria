@@ -347,7 +347,7 @@
     constructor(element){
       const thisCart = this;
 
-      thisCart.product = [];
+      thisCart.products = [];
 
       thisCart.getElements(element);
       thisCart.initActions();
@@ -427,7 +427,7 @@
       thisCartProduct.dom.amountWidget.addEventListener("updated", function () {
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amountWidget.value;
-        thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
+        thisCartProduct.dom.price.innerHTML = thisCartProduct.price
       });
     }
 
