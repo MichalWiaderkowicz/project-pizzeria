@@ -101,19 +101,6 @@ export const settings = {
     cart: {
       defaultDeliveryFee: 20,
     },
-
-    hours: {
-      open: 12,
-      close: 24,
-    },
-
-    datePicker: {
-      maxDaysInFuture: 14,
-    },
-
-    booking: {
-      tableIdAttribute: 'data-table',
-    },
     
     db: {
       url: '//localhost:3131',
@@ -125,6 +112,18 @@ export const settings = {
       dateEndParamKey: 'date_lte',
       notRepeatParam: 'repeat=false',
       repeatParam: 'repeat_ne=false',
+    },
+    hours: {
+      open: 12,
+      close: 24,
+    },
+
+    datePicker: {
+      maxDaysInFuture: 14,
+    },
+
+    booking: {
+      tableIdAttribute: 'data-table',
     },
 };
   
