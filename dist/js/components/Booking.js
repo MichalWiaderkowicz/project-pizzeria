@@ -190,6 +190,7 @@ class Booking {
 
         thisBooking.dom.wrapper.addEventListener('updated', function(){
             thisBooking.updateDOM();
+            thisBooking.resetTables();
         });
         /* Add a new listener to initWidgets which will activate the new initTables method when it detects a click in the table div */
         thisBooking.dom.tablesWrapper.addEventListener('click',  function(event){
@@ -206,35 +207,55 @@ class Booking {
 
         /* check if clicked table have a class 'table' */
         if(clickedTable.classList.contains(classNames.booking.table)){
-            /* check if clicked table doesn't have a class 'booked' */
-            if(!clickedTable.classList.contains(classNames.booking.tableBooked)){
-                //console.log(clickedTable);
-                /* get attribute data-table from clicked table */
-                const dataTable = clickedTable.getAttribute(settings.booking.tableIdAttribute);
-                /* add number of the table to selectedElement */
-                thisBooking.selectedElement = (dataTable);
-                //console.log('selectedElement:', thisBooking.selectedElement);
-                /* check if there is another table with class 'selected', if yes remove this class from it and add to clicked table */
-                for(const table of clickedTable.offsetParent.children){
-                    //console.log('table:', table);
-                    const selectedTable = table.classList.contains('selected');
-                    //console.log('table class selected:', selectedTable);
-                    if(selectedTable){ 
-                        /* remove class selected */
-                        table.classList.remove('selected');
-                    }                    
+            if(!clickedTable.classList.contains(classNames.booking.tableBooked)){    
+                /* check if clicked table doesn't have a class 'booked' */
+                if(!clickedTable.classList.contains(classNames.booking.tableSelected)){
+                    //console.log(clickedTable);
+                    /* get attribute data-table from clicked table */
+                    const dataTable = clickedTable.getAttribute(settings.booking.tableIdAttribute);
+                    /* add number of the table to selectedElement */
+                    thisBooking.selectedElement = (dataTable);
+                    //console.log('selectedElement:', thisBooking.selectedElement);
+                    /* check if there is another table with class 'selected', if yes remove this class from it and add to clicked table */
+                    for(const table of clickedTable.offsetParent.children){
+                        //console.log('table:', table);
+                        const selectedTable = table.classList.contains('selected');
+                        //console.log('table class selected:', selectedTable);
+                        if(selectedTable){ 
+                            /* remove class selected */
+                            table.classList.remove('selected');
+                        }                    
+                    }
+                    /* add class 'selected' to clicked table */
+                    clickedTable.classList.add(classNames.booking.tableSelected);
+                } else {
+                    /* remove class 'selected' to clicked table */
+                    clickedTable.classList.remove(classNames.booking.tableSelected);
+                    /* create empty space in tableElement */
+                    thisBooking.selectedElement = '';
+
+                }   
+                } else {
+                    window.alert("STOLIK NIEDOSTĘPNY!");
+                    console.log('STOLIK NIEDOSTĘPNY!');
                 }
-                /* add class 'selected' to clicked table */
-                clickedTable.classList.add(classNames.booking.tableSelected);
-            } else {
-                window.alert("STOLIK NIEDOSTĘPNY!");
-                console.log('STOLIK NIEDOSTĘPNY!');
             }
-        }
+    
         //console.log('selectedElement:', thisBooking.selectedElement);
-
-
     }
+
+    resetTables(){
+        const thisBooking = this;
+
+        for(const table of thisBooking.dom.tables){
+            /* remove 'selected' class from table */
+            table.classList.remove(classNames.booking.tableSelected);
+        }
+         /* create empty space in tableElement */
+         thisBooking.selectedElement = '';
+    }
+
 }
+
 
 export default Booking;
