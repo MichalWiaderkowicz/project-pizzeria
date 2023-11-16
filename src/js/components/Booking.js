@@ -9,6 +9,9 @@ class Booking {
       const thisBooking = this;
 
       thisBooking.element = element;
+      /* prepare a property in the constructor that will store information about the selected table */
+      thisBooking.selectedElement = '';
+
       thisBooking.render(element);
       thisBooking.initWidgets();
       thisBooking.getData();
@@ -92,7 +95,7 @@ class Booking {
                 }
             }
         }
-        console.log('thisBooking.booked:', thisBooking.booked);
+        //console.log('thisBooking.booked:', thisBooking.booked);
 
         thisBooking.updateDOM();
     }
@@ -165,6 +168,9 @@ class Booking {
         thisBooking.dom.datePicker = element.querySelector(select.widgets.datePicker.wrapper);
         thisBooking.dom.hourPicker = element.querySelector(select.widgets.hourPicker.wrapper);
         thisBooking.dom.tables = element.querySelectorAll(select.booking.tables);
+        thisBooking.dom.tablesWrapper = element.querySelector(select.booking.tablesWrapper);
+        /* Prepare access to the div with tables in the render method. Importantly, the whole diva */
+        //console.log('thisBooking.dom.tablesWrapper', thisBooking.dom.tablesWrapper);
     }
     initWidgets(){
         const thisBooking = this;
@@ -185,6 +191,48 @@ class Booking {
         thisBooking.dom.wrapper.addEventListener('updated', function(){
             thisBooking.updateDOM();
         });
+        /* Add a new listener to initWidgets which will activate the new initTables method when it detects a click in the table div */
+        thisBooking.dom.tablesWrapper.addEventListener('click',  function(event){
+            event.preventDefault();
+            /* reference clicked element div DOM */
+            const clickedElement = event.target;
+            //console.log('clickedElement',clickedElement);
+            thisBooking.initTables(clickedElement);
+        });
+    }
+
+    initTables(clickedTable){
+        const thisBooking = this;
+
+        /* check if clicked table have a class 'table' */
+        if(clickedTable.classList.contains(classNames.booking.table)){
+            /* check if clicked table doesn't have a class 'booked' */
+            if(!clickedTable.classList.contains(classNames.booking.tableBooked)){
+                //console.log(clickedTable);
+                /* get attribute data-table from clicked table */
+                const dataTable = clickedTable.getAttribute(settings.booking.tableIdAttribute);
+                /* add number of the table to selectedElement */
+                thisBooking.selectedElement = (dataTable);
+                //console.log('selectedElement:', thisBooking.selectedElement);
+                /* check if there is another table with class 'selected', if yes remove this class from it and add to clicked table */
+                for(const table of clickedTable.offsetParent.children){
+                    //console.log('table:', table);
+                    const selectedTable = table.classList.contains('selected');
+                    //console.log('table class selected:', selectedTable);
+                    if(selectedTable){ 
+                        /* remove class selected */
+                        table.classList.remove('selected');
+                    }                    
+                }
+                /* add class 'selected' to clicked table */
+                clickedTable.classList.add(classNames.booking.tableSelected);
+            } else {
+                window.alert("STOLIK NIEDOSTĘPNY!");
+                console.log('STOLIK NIEDOSTĘPNY!');
+            }
+        }
+        //console.log('selectedElement:', thisBooking.selectedElement);
+
 
     }
 }
