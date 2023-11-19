@@ -123,7 +123,7 @@ class Cart {
 
 
       }
-      console.log('PAYLOAD:',payload);
+      //console.log('PAYLOAD:',payload);
 
 
       for(let prod of thisCart.products) {
