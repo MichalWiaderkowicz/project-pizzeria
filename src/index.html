@@ -6,8 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
   <link href="./vendor/bootstrap-grid.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet" href="vendor/flickity.min.css" media="screen">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -80,7 +82,7 @@
       <div class="container">
         <div class="row">
             <div class="col-md-6">
-              <div class="section-one">
+              <div class="section-one orders">
                 <img src="./images/assets/pizza-1.jpg">
                 <div class="text">
                     <h3>order online</h3>
@@ -89,7 +91,7 @@
               </div>
             </div>
             <div class="col-md-6">
-                <div class="section-one">
+                <div class="section-one booking">
                     <img src="./images/assets/pizza-2.jpg">
                     <div class="text">
                         <h3>book a table</h3>
@@ -107,6 +109,122 @@
                 </div>
             </div>
         </div>
+
+        <section>
+          <div class="main-carousel" data-flickity='{ "freeScroll": true, "contain": true, "prevNextButtons": false,  autoPlay: true }'>
+            <div class="carousel-cell">
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="./images/assets/pizza-3.jpg">
+                  </div>
+                  <div class="col-md-8 opinion">
+                      <h4>Amazing service!</h4>
+                      <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                      <p>~Freddy Krueger</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="./images/assets/pizza-3.jpg">
+                  </div>
+                  <div class="col-md-8 opinion">
+                    <h4>I will come back!</h4>
+                    <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    <p>~Ciao Bella</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="./images/assets/pizza-3.jpg">
+                </div>
+                <div class="col-md-8 opinion">
+                  <h4>Tasty pizza!</h4>
+                  <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                  <p>~Jason Voorhees</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="gallery-image">
+              <img src="./images/assets/pizza-4.jpg">
+              <ul class="gallery-icons">
+                <li><i class="fa-solid fa-heart"></i></li>
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+              </ul>   
+            </div>         
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-image">
+              <img src="./images/assets/pizza-5.jpg">
+              <ul class="gallery-icons">
+                <li><i class="fa-solid fa-heart"></i></li>
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-image">
+              <img src="./images/assets/pizza-6.jpg">
+              <ul class="gallery-icons">
+                <li><i class="fa-solid fa-heart"></i></li>
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-image">
+              <img src="./images/assets/pizza-7.jpg">
+              <ul class="gallery-icons">
+                <li><i class="fa-solid fa-heart"></i></li>
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-image">
+              <img src="./images/assets/pizza-8.jpg">
+              <ul class="gallery-icons">
+                <li><i class="fa-solid fa-heart"></i></li>
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gallery-image">
+              <img src="./images/assets/pizza-9.jpg">
+              <ul class="gallery-icons">
+                <li><i class="fa-solid fa-heart"></i></li>
+                <li><i class="fa-solid fa-share-nodes"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <div class="more">
+        <a href="#">View more on istagram</a>
+      </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="main-carousel">
+        <div class="carousel-cell">...</div>
+        <div class="carousel-cell">...</div>
+        <div class="carousel-cell">...</div>
+        ... jak to działa?
       </div>
     </section>
   </script>
@@ -286,6 +404,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="vendor/flickity.pkgd.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
 </html>
