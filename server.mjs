@@ -1,4 +1,4 @@
-{
+
     import path from 'path';
     import jsonServer from 'json-server';
     
@@ -16,4 +16,3 @@
     server.listen(port);
 
     export default server;
-}
