@@ -25,13 +25,13 @@ section {
     //border: 2px solid green;
     height: 100px;
     border-radius: 10%;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 2;
 
-    & img {
+    img {
         width: 100%;
         height: 100%;
         border-radius: $radius;
@@ -39,7 +39,7 @@ section {
         object-fit: cover;             
     }
 
-    & .text {
+    .text {
         color: $color-light;
         margin: 0 auto;
         font-weight: $font-bold;
@@ -55,24 +55,24 @@ section {
         transform: translate(-50%, -50%);
     }
 
-    & .info-opening {
+    .info-opening {
         width: 100%;
         height: 100%;
         border-radius: $radius;
         background-color: $color-main;
     }
 
-    & .cursor {
+    .cursor {
         cursor: default;
     }
 
-    & h4 {
+    h4 {
         font-weight: $font-light;
         font-family: $font-text;
         position: relative;
     }
 
-    & h5 { 
+    h5 { 
         display: none;
         font-weight: $font-light;
         font-family: $font-text;
@@ -83,8 +83,8 @@ section {
         transition: opacity 1s, top 2s;
     }
 
-    & :hover {
-        & h5{
+    :hover {
+        h5{
             display: inline;
             top: 0%;
             opacity: 1;
@@ -94,8 +94,8 @@ section {
 }
 
 .carousel-cell {
-    width: 100%; 
-    height: 200px; 
+    width: 100%;
+    height: 200px;
     margin-right: 10px;
 }
 
@@ -131,7 +131,7 @@ section {
     z-index: 2;
 
 
-    & img {
+    img {
         width: 100%;
         height: 180px;
         border-radius: $radius;
@@ -139,8 +139,8 @@ section {
         object-fit: cover;
     }
 
-    &:hover {
-        & li {
+    :hover {
+        li {
             visibility: visible;
             color: $color-main;
         }
@@ -162,7 +162,7 @@ section {
     gap: 5px;
 
 
-    & li { 
+    li { 
         visibility: hidden;
         color: $color-light;
         list-style-type: none;
